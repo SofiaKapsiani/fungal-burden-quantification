@@ -9,14 +9,13 @@ The images used for building the U-Net model were provided by Prof. Elaine Bigne
 U-Net model for predicting fungal regions of input lung histology images infected with *Aspergillus fumigatus*.\
 The model was built using PyTorch and was adapted from the GitHub repository: https://github.com/milesial/Pytorch-UNet
 
-For a given input RGB lung histology image the U-Net model will output the segmented mask of the infected region (white: fungi, black: non-fungi region):
+For a given input RGB lung histology image the U-Net model will output the segmented mask of the infected region:
 ![input_ouput_unet](https://user-images.githubusercontent.com/77961877/148688541-a06e4b42-b8c3-494d-af65-7df691f36d9e.PNG)
 
 ## Contents
 - [Training](#training)
 - [Prediction](#prediction)
 - [Pretrained model](#pretrained-model)
-- [Data](#data)
 - [Augmentations](#augmentations)
 - [Quantifying fungal burden](#quantifying-fungal-burden)
 
