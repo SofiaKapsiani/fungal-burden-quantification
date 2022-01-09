@@ -1,5 +1,5 @@
 # Fungal burden quantification with U-Net
-*Project 3 for an MSc in Bioinformatics and Theoretical Systems Biology at Imperial College London.*
+*Project 3 for the MSc in Bioinformatics and Theoretical Systems Biology at Imperial College London.*
 
 This project was undertaken in the [Tanaka Group](https://rtanaka.bg-research.cc.ic.ac.uk/) under the supervision of Dr Reiko Tanaka and Dr Rahman Attar. </br>
 The images used for building the U-Net model were provided by Prof. Elaine Bignell and Natasha Motsi. 
