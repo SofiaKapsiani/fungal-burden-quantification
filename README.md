@@ -1,12 +1,16 @@
-# Fungal-Histology-Quantification-UNET
-*Sofia MSc Bioinformatics 2021*
+# Fungal burden quantification with U-Net
+*Project 3 for an MSc in Bioinformatics and Theoretical Systems Biology at Imperial College London.*
+
+This project was undertaken in the [Tanaka Group](https://rtanaka.bg-research.cc.ic.ac.uk/) under the supervision of Dr Reiko Tanaka and Dr Rahman Attar. </br>
+The images used for building the U-Net model were provided by Prof. Elaine Bignell and Natasha Motsi. 
 
 
+## Project overview
 U-Net model for predicting fungal regions of input lung histology images infected with *Aspergillus fumigatus*.\
 The model was built using PyTorch and was adapted from the GitHub repository: https://github.com/milesial/Pytorch-UNet
 
 For a given input RGB lung histology image the U-Net model will output the segmented mask of the infected region (white: fungi, black: non-fungi region):
-![input_output_unet](https://github.ic.ac.uk/storage/user/831/files/d3f0bd80-195f-11ec-9373-eeb9d841bc9c)
+![input_ouput_unet](https://user-images.githubusercontent.com/77961877/148688541-a06e4b42-b8c3-494d-af65-7df691f36d9e.PNG)
 
 ## Contents
 - [Training](#training)
@@ -18,8 +22,7 @@ For a given input RGB lung histology image the U-Net model will output the segme
 
 
 ### Training
-The Python code for training the U-Net model is `train.py`; the equivalent code can be run using jupyter notebook with `train_manually.ipynb`.
-The parameters for model training are:
+The Python code for training the U-Net model is `train.py`.The parameters for model training are:
 ```bash
   --epochs, -e             Number of epochs (default: 5) 
   --batch-size, -b         Batch size (default: 1) 
@@ -38,7 +41,7 @@ python train.py -s 1 -d 10
 ```
 
 ### Prediction
-The Python code `predict.py` and its equivalent jupyter notebook version `predict_manually.ipynb` can be employed for predicting the fungi segmented mask from an input histology image.
+The Python code `predict.py`can be employed for predicting the fungi segmented mask from an input histology image.
 The following parameters can be passed for making the predictions:
 ```bash
   --model, -m            Pretrained model from a .pth file 
@@ -58,15 +61,6 @@ The pretrained model can be employed to predict the masks of new unseen images u
 python predict.py -m pretained_model.pth -i /data/test/imgs/1M05_22.3x_11.jpg -o /data/test/out/1M05_22.3x_11_out.jpg -v -s 1 
 ```
 
-### Data
- **1. train**
-   - *imgs*: histology images used for model training
-   - *masks*: corresponding ground truth masks used for model training
-   
- **2. test**
-   - *imgs*: histology images not used for model training with unlabelled fungi regions
-   - *out*: predicted masks using pretrained model
-
 ### Augmentations
 The augmentations explored can be found under the `utils` directory in the `augmentations.py` file.\
 For each image in the training set a *n* number of augmented images are generated. Both original images and augmented images are used for model training.
@@ -76,5 +70,19 @@ The `augmentations.py` file includes both the geometric and colour-space augment
 ### Quantifying fungal burden
 Fungal burden was quantified as fungi area per tissue area. The jupyter notebook for quantifying the fungal burden is `fungal_burden.ipynb`.
 
-For any further explanations please contact: Sofia Kapsiani at sofia.kapsiani@outlook.com or sk2067@cam.ac.uk
+**Python packages required**
+```
+- numpy
+- PyTorch
+- sklearn
+- matplotlib
+- seaborn
+- tqdm
+- argparse
+- Pillow
+- torchvision 
+- opencv
+- albumentations
+
+```
 
